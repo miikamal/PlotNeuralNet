@@ -222,6 +222,16 @@ def to_connection( of, to):
 \draw [connection]  ("""+of+"""-east)    -- node {\midarrow} ("""+to+"""-west);
 """
 
+def to_dashed( of, to):
+    return r"""
+\draw [densely dashed]
+    ("""+of+"""-nearnortheast) -- ("""+to+"""-nearnorthwest)
+    ("""+of+"""-nearsoutheast) -- ("""+to+"""-nearsouthwest)
+    ("""+of+"""-farsoutheast) -- ("""+to+"""-farsouthwest)
+    ("""+of+"""-farnortheast) -- ("""+to+"""-farnorthwest)
+    ;
+"""
+
 def to_skip( of, to, pos=1.25):
     return r"""
 \path ("""+ of +"""-southeast) -- ("""+ of +"""-northeast) coordinate[pos="""+ str(pos) +"""] ("""+ of +"""-top) ;
